@@ -20,22 +20,6 @@ spec:
     spec:
       containers:
       - name: propeller-test
-        image: europe-west1-docker.pkg.dev/GOOGLE_CLOUD_PROJECT/propeller-images/propeller-test
+        image: europe-west1-docker.pkg.dev/GOOGLE_CLOUD_PROJECT/propeller-images/propeller:COMMIT_SHA
         ports:
         - containerPort: 3000
----
-
-# Service
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: propeller-service
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 3000
-    protocol: TCP
-  selector:
-    app: web
